@@ -1,9 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
-const LoginForm = ({}) => {
+import { NavLink, useNavigate} from 'react-router-dom';
+const LoginForm = ({fetchData}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -12,6 +15,11 @@ const LoginForm = ({}) => {
           username,
           password
         });
+        fetchData()
+        navigate("/ListAll")
+    
+        
+        
       } catch (error) {
         console.error('Login error:', error);
       }

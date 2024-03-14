@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
+import UpdateForm from './UpdateForm';
 
-const Test = ({data,onDelete}) => {
+const Test = ({data,onDelete,onUpdateClick}) => {
       return (
         <div>
         <h1>Users from API:</h1>
@@ -10,7 +12,10 @@ const Test = ({data,onDelete}) => {
             <p>Name: {userData.username}</p>
             <p>Password: {userData.password}</p> 
             <button onClick={() => onDelete(userData.id)}>Delete</button>
-            <button onClick={() => onDelete(userData.id)}>Update</button>
+            <button onClick={() => onUpdateClick(userData.id)}>Update</button>
+            
+            
+            {/* <button (<NavLink to={"/update"}/>)}>Update</button> */}
 
           </div>
         ))}
